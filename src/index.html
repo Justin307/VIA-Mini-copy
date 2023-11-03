@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function showNav()
+        {
+            document.getElementById("content")?.classList.add("hidden");
+            var nav = document.getElementById("smallNav");
+
+            if(nav?.classList.contains("hidden"))
+            {
+                nav?.classList.remove("hidden");
+                nav?.classList.add("flex");
+            }
+
+            document.getElementById("navBtnShow")?.classList.add("hidden");
+            document.getElementById("navBtnHide")?.classList.remove("hidden");
+        }
+        function hideNavAll()
+        {
+            document.getElementById("content")?.classList.remove("hidden");
+
+            var nav = document.getElementById("smallNav");
+            if(nav?.classList.contains("flex"))
+            {
+                nav?.classList.remove("flex");
+                nav?.classList.add("hidden");
+            }
+
+            var saa = document.getElementById("servicesAndAccesories");
+            if(saa?.classList.contains("flex"))
+            {
+                saa?.classList.remove("flex");
+                saa?.classList.add("hidden");
+            }
+
+            var cm = document.getElementById("contactMINI");
+            if(cm?.classList.contains("flex"))
+            {
+                cm?.classList.remove("flex");
+                cm?.classList.add("hidden");
+            }
+
+            document.getElementById("navBtnShow")?.classList.remove("hidden");
+            document.getElementById("navBtnHide")?.classList.add("hidden");
+        }
+        function showServicesAndAccesories()
+        {
+            var nav = document.getElementById("smallNav");
+            if(nav?.classList.contains("flex"))
+            {
+                nav?.classList.remove("flex");
+                nav?.classList.add("hidden");
+            }
+
+            var content = document.getElementById("content");
+            if(!content?.classList.contains("hidden"))
+            {
+                content?.classList.add("hidden");
+            }
+
+            var cm = document.getElementById("contactMINI");
+            if(cm?.classList.contains("flex"))
+            {
+                cm?.classList.remove("flex");
+                cm?.classList.add("hidden");
+            }
+
+            var saa = document.getElementById("servicesAndAccesories");
+            if(saa?.classList.contains("hidden"))
+            {
+                saa?.classList.remove("hidden");
+                saa?.classList.add("flex");
+            }
+            else
+            {
+                saa?.classList.remove("flex");
+                saa?.classList.add("hidden");
+                content?.classList.remove("hidden");
+            }
+        }
+        function showContactMini()
+        {
+            var nav = document.getElementById("smallNav");
+            if(nav?.classList.contains("flex"))
+            {
+                nav?.classList.remove("flex");
+                nav?.classList.add("hidden");
+            }
+
+            var content = document.getElementById("content");
+            if(!content?.classList.contains("hidden"))
+            {
+                content?.classList.add("hidden");
+            }
+
+            var saa = document.getElementById("servicesAndAccesories");
+            if(saa?.classList.contains("flex"))
+            {
+                saa?.classList.remove("flex");
+                saa?.classList.add("hidden");
+            }
+
+            var cm = document.getElementById("contactMINI");
+            if(cm?.classList.contains("hidden"))
+            {
+                cm?.classList.remove("hidden");
+                cm?.classList.add("flex");
+            }
+            else
+            {
+                cm?.classList.remove("flex");
+                cm?.classList.add("hidden");
+                content?.classList.remove("hidden");
+            }
+        }
+    </script>
+</head>
+<body class="h-screen flex flex-col">
+    <!-- Navigation bar -->
+    <nav class="px-6 flex justify-between">
+        <div class="container flex space-x-6 justify-start items-start">
+            <!-- Logo -->
+            <a href="/src/index.html" class="my-auto">
+                <img src="/dist/logo.png" alt="logo" width="80">
+            </a>
+        
+            <!-- Navigation for Large Screens -->
+            <div class="hidden lg:flex ml-3">
+                <button type="button" class="text-black hover:text-cyan-700 py-5 px-2 border-solid border-white hover:border-cyan-700 border-b-4">NOVÉ MINI</button>
+                <button type="button" class="text-black hover:text-cyan-700 py-5 px-2 border-solid border-white hover:border-cyan-700 border-b-4">VOZY IHNED K ODBĚRU</button>
+                <button type="button" class="text-black hover:text-cyan-700 py-5 px-2 border-solid border-white hover:border-cyan-700 border-b-4">NABÍDKA A FINANCOVÁNÍ</button>
+                <button type="button" class="text-black hover:text-cyan-700 py-5 px-2 border-solid border-white hover:border-cyan-700 border-b-4" onclick="showServicesAndAccesories()">SLUŽBY & PŘÍSLUŠENSTVÍ</button>
+                <button type="button" class="text-black hover:text-cyan-700 py-5 px-2 border-solid border-white hover:border-cyan-700 border-b-4">AUTORIZOVANÝ PARTNER MINI</button>
+                <button type="button" class="text-black hover:text-cyan-700 py-5 px-2 border-solid border-white hover:border-cyan-700 border-b-4" onclick="showContactMini()">KONTAKT MINI</button>
+            </div>
+        </div>
+
+        <div class="flex">
+            <!-- User Account Icon -->
+            <button type="button" class="py-5 px-2">
+                <!-- Add your user account icon here -->
+                <i class="fa fa-user fa-lg"></i>
+            </button>
+        
+            <!-- Shopping Cart Icon -->
+            <button type="button"  class="py-5 px-2">
+            <!-- Add your shopping cart icon here -->
+            <i class="fa fa-shopping-cart fa-lg"></i>
+            </button>
+            
+            <div class="lg:hidden">
+                <button type="button" class="py-5 px-2" id="navBtnShow" onclick="showNav()">
+                    <!-- Hamburger Icon for Small Screens -->
+                    <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <button type="button" class="hidden py-5 px-2" id="navBtnHide" onclick="hideNavAll()">
+                    <!-- Hamburger Icon for Small Screens -->
+                    <i class="fa fa-times fa-lg"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <hr class="text-black border-black mx-1">
+    <!-- Navigation for small screen devices-->
+    <div class="flex-grow flex-col hidden" id="smallNav">
+        <button type="button" class="text-black hover:text-cyan-700 py-5 pl-5 text-left">NOVÉ MINI</button>
+        <hr class="mx-1">
+        <button type="button" class="text-black hover:text-cyan-700 py-5 pl-5 text-left">VOZY IHNED K ODBĚRU</button>
+        <hr class="mx-1">
+        <button type="button" class="text-black hover:text-cyan-700 py-5 pl-5 text-left">NABÍDKA A FINANCOVÁNÍ</button>
+        <hr class="mx-1">
+        <button type="button" class="text-black hover:text-cyan-700 py-5 pl-5 text-left" onclick="showServicesAndAccesories()">SLUŽBY & PŘÍSLUŠENSTVÍ</button>
+        <hr class="mx-1">
+        <button type="button" class="text-black hover:text-cyan-700 py-5 pl-5 text-left">AUTORIZOVANÝ PARTNER MINI</button>
+        <hr class="mx-1">
+        <button type="button" class="text-black hover:text-cyan-700 py-5 pl-5 text-left" onclick="showContactMini()">KONTAKT MINI</button>
+    </div>
+    <!-- Subnavigation - Služby a příslušenství -->
+    <div class="flex-grow hidden lg:flex-row flex-col justify-between p-7 md:p-10" id="servicesAndAccesories">
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>PROČ MINI SERVIS</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Proč MINI servis?</button>
+        </div>
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>SERVIS A SLUŽBY</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Servis Inclusive</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">MINI Fit Servis</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">MINI Originální opravy</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Asistenční služby</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Záruka</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Recyklace</button>
+        </div>
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>ORIGINÁLNÍ PŘÍSLUŠENSTVÍ</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Příslušenství John Cooper Works</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Příslušenství na zimu</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Příslušenství na jaro a léto</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">MINI Originální kola</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">MINI Lifestyle</button>
+        </div>
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>NABÍDKA SERVISU</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Online Plánování termínu servisu</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Najít servisního partnera</button>
+        </div>
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>MINI CONNECTED</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Mini Connected</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Mini App</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Mini Digital services shop</button>
+        </div>
+    </div>
+    <!-- Subnavigation - Kontaktovat MINI -->
+    <div class="flex-grow hidden lg:flex-row flex-col lg:justify-between md:justify-start p-7 md:p-10 space-y-0" id="contactMINI">
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>INFORMACE KE KORONAVIRU</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">informace o koronaviru</button>
+        </div>
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>O NÁS</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">O nás</button>
+        </div>
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>KONTAKTUJTE MĚ</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Žádost o kontakt</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Žádost o nabídku</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Žádost o katalog</button>
+        </div>
+        <div class="flex flex-col">
+            <button type="button" class="text-black font-bold py-2 pl-3 text-left" disabled>HELP CENTER</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">FAQ</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Žádost o testovací jízdu</button>
+            <button type="button" class="text-black hover:text-cyan-700 py-2 pl-3 text-left">Kontaktujte nás</button>
+        </div>
+    </div>
+
+    <div class="flex-grow bg-yellow-400" id="content">
+
+    </div>
+</body>
+</html>
