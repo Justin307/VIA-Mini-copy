@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="scripts/nav.js"></script>
+    <script>
+        function radioChange(radioButton)
+        {
+            if(radioButton.value == 'private' && radioButton.checked)
+            {
+                document.getElementById("firmNameDiv").classList.remove("flex");
+                document.getElementById("firmNameDiv").classList.add("hidden");
+                document.getElementById("firmNameDiv").removeAttribute("required");
+            }
+            if(radioButton.value == 'firm' && radioButton.checked)
+            {
+                document.getElementById("firmNameDiv").classList.remove("hidden");
+                document.getElementById("firmNameDiv").classList.add("flex");
+                document.getElementById("firmNameDiv").setAttribute("required", "");
+            }
+        }
+    </script>
 </head>
 <body class="h-screen flex flex-col">
     <!-- Navigation bar -->
@@ -126,8 +143,198 @@
         </div>
     </div>
 
-    <div class="flex-grow bg-red-100 overflow-y-scroll" id="content">
-         
+    <div class="flex-grow overflow-y-scroll" id="content">
+        <form class="container mx-auto mt-5 pt-10 px-10 content-start w-full max-w-[1300px]">
+            <h1 class="text-2xl">O JAKOU BROŽURU MÁTE ZÁJEM?</h1>
+            <div class="border-l h-1 w-[70px] bg-black mt-2"></div>
+            <p class="mt-3 font-semibold">* Povínná pole</p>
+
+            <div class="mt-[50px]">
+                <select class="block appearance-none border-2 border-black border-solid px-4 py-2 rounded-none bg-white text-sm md:max-w-[500px] w-full" id="brochureType" required>
+                    <option value="" disabled selected>Prosím, vyberte brožuru...*</option>
+                    <option value="3door">MINI 3dveřové PDF</option>
+                    <option value="5door">MINI 5dveřové PDF</option>
+                    <option value="cabrio">MINI cabrio PDF</option>
+                    <option value="clubman">MINI clubman PDF</option>
+                    <option value="countryman">MINI countryman PDF</option>
+                </select>
+                <span class="mt-1 text-sm text-red-500 font-semibold hidden" id="brochureTypeWarning">Toto pole je povinné</span>
+            </div> 
+
+            <h1 class="text-2xl mt-[50px]">Prosím, uveďte Vaše osobní údaje.</h1>
+            <div class="border-l h-1 w-[70px] bg-black mt-2"></div>
+            <button type="button" class="bg-cyan-700 text-white py-4 w-full md:max-w-[250px] content-center rounded-full mt-3">MINI ID přihlášení</button>
+
+            <p class="mt-3 font-semibold">Oslovení*</p>
+            <div class="flex items-center mt-1">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="" name="gender" value="mr" required>
+                    <span class="ml-2">Pan</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="" name="gender" value="ms" required>
+                    <span class="ml-2">Paní</span>
+                </label>
+            </div>
+            <span class="mt-1 text-sm text-red-500 font-semibold hidden" id="genderWarning">Toto pole je povinné</span>
+
+            <div class="flex flex-col mt-5">
+                <label for="firstName" class="font-semibold">Jméno*</label>
+                <input type="text" id="firstName" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="Jméno..." required>
+            </div>
+
+            <div class="flex flex-col mt-5">
+                <label for="lastName" class="font-semibold">Příjmení*</label>
+                <input type="text" id="lastName" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="Příjmení..." required>
+            </div>
+              
+            <div class="flex flex-col mt-5">
+                <label for="email" class="font-semibold">Email*</label>
+                <input type="email" id="email" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="infomini@mini.cz" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+            </div>
+
+            <div class="flex flex-col mt-5">
+                <label for="tel" class="font-semibold">Telefon*</label>
+                <input type="tel" id="tel" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="+420 123 123 123" pattern="^+\d{3} \d{3} \d{3} \d{3}" required>
+            </div>
+
+            <h1 class="text-2xl mt-[50px]">Prosím, uveďte Vaše osobní údaje.</h1>
+            <div class="border-l h-1 w-[70px] bg-black mt-2"></div>
+
+            <div class="flex items-center mt-3">
+                <label class="inline-flex items-center">
+                    <input type="radio" class="" name="address" value="private" onclick="radioChange(this)" checked>
+                    <span class="ml-2">Soukromá</span>
+                </label>
+                <label class="inline-flex items-center ml-6">
+                    <input type="radio" class="" name="address" value="firm" onclick="radioChange(this)">
+                    <span class="ml-2">Firma</span>
+                </label>
+            </div>
+
+            <div class="hidden flex-col mt-5" id="firmNameDiv">
+                <label for="firmName" class="font-semibold">Jméno firmy*</label>
+                <input type="text" id="firmName" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="Jméno firmy..." required>
+            </div>
+            
+            <div class="flex flex-col mt-5">
+                <label for="psc" class="font-semibold">PSČ*</label>
+                <input type="text" id="psc" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="PSČ..." pattern="\d{5}" required>
+            </div>
+            
+            <div class="flex flex-col mt-5">
+                <label for="city" class="font-semibold">Město*</label>
+                <input type="text" id="city" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="Město..." required>
+            </div>
+
+            <div class="flex flex-col mt-5">
+                <label for="street" class="font-semibold">Ulice*</label>
+                <input type="text" id="street" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="Ulice..." required>
+            </div>
+
+            <div class="flex flex-col mt-5">
+                <label for="houseNumber" class="font-semibold">Číslo domu*</label>
+                <input type="text" id="houseNumber" class=" mt-1 border-black border-2 w-full md:max-w-[500px] p-2" placeholder="Číslo domu..." pattern="\d{1,}" required>
+            </div>
+
+            <p class=" text-xl mt-[50px]">Souhlas se zasíláním obchodních sdělení</p>
+
+            <div class="flex items-center mt-3">
+                <input type="checkbox" class="form-checkbox" id="adds">
+                <label for="myCheckbox" class="ml-2">Přeji si od společnosti BMW dostávat obchodní sdělení emailem, poštou, telefonicky / SMS a prostřednictvím aplikace ve vozidle (je-li tato funkce podporována).</label>
+            </div>
+            <div class="flex items-center mt-3">
+                <input type="checkbox" class="form-checkbox" id="personalizedAdds">
+                <label for="myCheckbox" class="ml-2">Dále si přeji dostávat personalizované nabídky produktu a služeb BMW Group, které byly společností BMW Czech Republic s.r.o. identifikovány na základe mých osobních preferencí a chování a také na základe využívání produktu a služeb.</label>
+            </div>
+
+            <div class="flex items-center mt-3">
+                <p class="ml-2">Žádosti o změnu prohlášení o udělení souhlasu a právo na odvolání souhlasu</p>
+            </div>
+
+            <input type="submit" class="bg-cyan-700 text-white py-4 w-full md:max-w-[250px] content-center rounded-full my-[75px]" value="Odeslat žádost">
+        </form>
+
+        <footer>
+            <div class="flex flex-row flex-wrap justify-between text-white bg-black max-w-[1300px] mx-auto p-5">
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">MODELY</p>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Elektrické MINI Cooper</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Elektrické MINI Countryman</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Nové MINI Countryman</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI 3dveřové</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI 5dvéřové</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Cabrio</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Electric</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Clubman</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Countryman</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Countryman Plug-in Hybrid</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI John Cooper Works</button>
+                </div>
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">NABÍDKY & FINANCOVÁNÍ</p>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Vozy ihned k odběru</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI ojeté vozy</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI na dosah - akční nabídky financování</button>
+                </div>
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">ŘIDIČ MINI</p>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Servis</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Příslušenství</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Connected</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI App</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Sady Kol</button>
+                </div>
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">KONTAKT</p>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">O nás</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI autorizovaní dealeři</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Žádost o kontakt</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Žádost o nabídku</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Žádost o testovací jízdu</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Žádost o katalog</button>
+                </div>
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">NOVINKY MINI ČR</p>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Přihlásit se k odběru</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">PressClub Česká republika</button>
+                </div>
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">MINI EDICE</p>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Resolute Edition</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Clubman Untold Edition</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">MINI Countryman Untamed Edition</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Přehled MINI speciálních edic</button>
+                </div>
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">HELP CENTER</p>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">FAQ</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Žádost o testovací jízdu</button>
+                    <button type="button" class="hover:text-cyan-700 flex text-left my-1">Kontaktujte nás</button>
+                </div>
+                <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5">
+                    <p class="font-bold text-xl">NAJDETE NÁS</p>
+                    <div class="flex flex-row justify-start space-x-3 mt-3">
+                        <button type="button" class="">
+                            <i class="fa fa-facebook fa-lg p-2"></i>
+                        </button>
+                        <button type="button" class="">
+                            <i class="fa fa-instagram fa-lg p-2"></i>
+                        </button>
+                        </button>
+                        <button type="button" class="">
+                            <i class="fa fa-youtube fa-lg p-2"></i>
+                        <button type="button" class="">
+                            <i class="fa fa-linkedin fa-lg p-2"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                
+            </div>
+        </footer>
     </div>
 </body>
 </html>
