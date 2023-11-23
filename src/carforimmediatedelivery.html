@@ -31,7 +31,7 @@
             <!-- User Account Icon -->
             <button type="button" class="py-5 px-2">
                 <!-- Add your user account icon here -->
-                <i class="fa fa-user fa-lg"></i>
+                <i class="fa fa-user-o fa-lg"></i>
             </button>
         
             <!-- Shopping Cart Icon -->
@@ -127,7 +127,365 @@
     </div>
 
     <div class="flex-grow overflow-y-scroll" id="content">
+        <div class="absolute top-0 left-0 right-0 bottom-0 bg-[rgba(50,50,50,0.9)] flex-col justify-center hidden" id="modalImg">
+            <div class="w-full md:w-[80%] max-w-[1200px] bg-white flex flex-col mx-auto py-[50px] relative">
+                <div class="aspect-w-16 aspect-h-7">
+                    <img src="" alt="cooper" class="object-cover w-full h-full" id="img">
+                </div>
+                <button class="absolute top-0 right-0 m-5" id="closeBtn">
+                    <i class="fa fa-times fa-2x" id="closeIcon"></i>
+                </button>
+            </div>
+        </div>
         
+        <div class="py-[50px] xl:py-[100px] px-[50px] md:px-[75px] lg:px-[100px] max-w-[1700px] mx-auto">
+            <h1 class="text-3xl md:text-5xl lg:text-7xl pb-7">Na výběr je velké množství vozů.</h1>
+            <p>Vyberte si ten, který nejlépe vyhovuje Vašim potřebám.</p>
+            <div class="flex flex-col lg:flex-row mt-10">
+                <div class="flex flex-col lg:basis-1/4 text-lg mb-3">
+                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0"  id="filter">
+                        <button class="p-5 w-full text-left group-btn font-bold">Nabídka</button>
+                        <div class="bg-white rounded hidden options">
+                            <div class="flex flex-row p-5">
+                                <input type="checkbox" id="dealerevailable" class="mr-3 accent-black hover:accent-cyan-700"></input>
+                                <label for="dealerevailable">Vozy s nabídkou dealera</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0"  id="filter">
+                        <button class="p-5 w-full text-left group-btn font-bold">Cena</button>
+                        <div class="bg-white p-4 rounded hidden options">
+                          <label for="pricefrom" class="text-sm">CENA OD</label> <br>
+                          <input type="text" id="priceform" class="border-gray-300 border w-full p-1 mt-1" placeholder="855 000,00 KČ"> <br>
+                          <label for="priceto" class="text-sm">CENA DO</label> <br>
+                          <input type="text" id="priceto" class="border-gray-300 border w-full p-1 mt-1" placeholder="1 411 000,00 Kč"> <br>
+                        </div>
+                    </div>
+                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0"  id="filter">
+                        <button class="p-5 w-full text-left group-btn font-bold">Barva</button>
+                        <div class="bg-white p-4 rounded hidden  options">
+                            <div class="flex flex-row p-5">
+                                <input type="checkbox" id="colorblack" class="mr-3 accent-black hover:accent-cyan-700"></input>
+                                <label for="colorblack">Černá</label>
+                            </div>
+                            <div class="flex flex-row p-5">
+                                <input type="checkbox" id="colorgray" class="mr-3 accent-gray-600 hover:accent-cyan-700"></input>
+                                <label for="colorgray">Šedá</label>
+                            </div>
+                            <div class="flex flex-row p-5">
+                                <input type="checkbox" id="colorwhite" class="mr-3 accent-white hover:accent-cyan-700"></input>
+                                <label for="colorwhite">Bílá</label>
+                            </div>
+                            <div class="flex flex-row p-5">
+                                <input type="checkbox" id="colorblue" class="mr-3 accent-cyan-800 hover:accent-cyan-700"></input>
+                                <label for="colorblue">Modrá</label>
+                            </div>
+                            <div class="flex flex-row p-5">
+                                <input type="checkbox" id="colorgreen" class="mr-3 accent-green-800 hover:accent-cyan-700"></input>
+                                <label for="colorgreen">Zelená</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basis-3/4 columns-1 md:columns-2 xl:columns-3 lg:ml-6 gap-6">
+                    <!-- Car Card -->
+                    <div class=" pb-3">
+                        <div class="border border-gray flex flex-col h-[850px]">
+                            <div class="flex flex-row justify-end content-end pt-3 pr-3 pb-7">
+                                <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
+                            </div>
+                            <img src="img/cooper1.webp" alt="cooper" class="w-full cooperImg">
+                            <div class="flex flex-col grow p-3 pb-0">
+                                <span class="text-xl uppercase">MINI Cooper Countryman</span>
+                                <span class="text-xl text-gray-600 uppercase mt-2">Paket Classic</span>
+                                <div class="flex flex-row mt-2">
+                                    <p class="bg-gray-600 text-white text-xs p-1 shrink">Nový vůz</p>
+                                </div>
+                                <p class="mt-2">995 539.75 Kč</p>
+                                <div class="w-full flex flex-row justify-evenly content-between mt-10">
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M17.813 31.2339C20.011 31.2339 21.793 29.4519 21.793 27.2549C21.793 23.4679 19.168 23.9659 17.813 18.2339C16.514 23.9649 13.833 23.4129 13.833 27.2549C13.833 29.4529 15.615 31.2339 17.813 31.2339ZM16.87 24.7379C17.161 24.3679 17.487 23.9529 17.821 23.4489C18.152 23.9529 18.474 24.3689 18.761 24.7399C19.49 25.6809 19.792 26.0699 19.792 27.2549C19.792 28.3459 18.904 29.2339 17.812 29.2339C16.72 29.2339 15.832 28.3459 15.832 27.2549C15.833 26.0559 16.136 25.6689 16.87 24.7379Z" fill="#262626"></path>
+                                            <path d="M24 6C14.059 6 6 14.059 6 24C6 33.941 14.059 42 24 42C24.107 42 24.211 41.986 24.317 41.984V41.99C27.356 41.99 32.5 40.413 32.5 34.5V24.121C32.5 23.463 32.233 22.819 31.766 22.351L22.035 12.673L20.625 14.091L25.559 19H25.5V26.379C25.5 27.037 25.767 27.681 26.237 28.151L30.5 32.353V34.5C30.5 39.726 25.35 39.99 24.317 39.99V39.984C24.211 39.986 24.107 40 24 40C15.178 40 8 32.822 8 24C8 15.178 15.178 8 24 8C32.822 8 40 15.178 40 24C40 28.871 37.806 33.232 34.361 36.169C34.169 37.415 33.771 38.509 33.205 39.447C38.466 36.306 42 30.573 42 24C42 14.059 33.941 6 24 6ZM27.646 26.732C27.553 26.639 27.5 26.51 27.5 26.378V20.93L30.354 23.768C30.447 23.861 30.5 23.99 30.5 24.122V29.546L27.646 26.732Z" fill="#262626"></path>
+                                        </svg>
+                                        <p class="text-sm">Zážěhový</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M37 11H34V23H25V11H22V23H13V11H10V37H13V26H22V37H25V26H37V11Z" fill="black"></path>
+                                        </svg>
+                                        <p class="text-sm">Automatická</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4995 2.40002V4.86156C16.2754 5.37666 9.95894 9.92042 7.1734 16.6057C4.38787 23.291 5.60924 30.9755 10.3303 36.4677L8.59487 38.2031C3.17149 32.0063 1.74096 23.2659 4.90582 15.6635C8.07068 8.06103 15.2809 2.91776 23.4995 2.40002ZM26.3056 4.86156C30.4243 5.17453 34.3315 6.81078 37.4441 9.52618L39.1918 7.79079C35.612 4.61626 31.0795 2.72015 26.3056 2.40002V4.86156ZM27.6718 23.9877C27.6657 23.6686 27.6075 23.3527 27.4995 23.0523L37.3456 13.2062L35.6472 11.5077L25.7272 21.3539C25.4519 21.2494 25.1601 21.1952 24.8656 21.1939C23.3206 21.2006 22.0718 22.455 22.0718 24C22.0727 24.2844 22.1184 24.5668 22.2072 24.8369L19.7456 27.2985L21.481 29.0462L23.9426 26.5846C24.2488 26.7037 24.574 26.7662 24.9026 26.7693C26.4256 26.7428 27.6521 25.5109 27.6718 23.9877ZM26.3056 45.5877V43.1262V43.0154C30.3589 42.7182 34.2105 41.1309 37.2964 38.4862L39.0318 40.2339C35.4931 43.3682 31.0207 45.2497 26.3056 45.5877ZM10.5764 40.1846C14.1659 43.3614 18.715 45.246 23.4995 45.5385V43.0769C19.3688 42.7813 15.4444 41.158 12.3118 38.4493L10.5764 40.1846ZM46.4164 22.6093C46.132 17.8417 44.2702 13.3041 41.1241 9.71079L39.4256 11.4585C42.0967 14.5907 43.6853 18.5016 43.9549 22.6093H46.4164ZM41.0379 38.2523L39.3026 36.5169H39.3395C42.0314 33.404 43.6497 29.5072 43.9549 25.4031H46.4164C46.0926 30.1628 44.2013 34.6812 41.0379 38.2523Z" fill="black"></path>
+                                          </svg>
+                                        <p class="text-sm">100kW (136 k)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs pt-5">Zrychlení 9,7s (0-100 km/h)</p>
+                                <p class="text-xs pt-3">Zdvihový objem 1499 cm3</p>
+                                <p class="text-xs pt-3">Druh pohonu Pohon zadních kol</p>
+                                <p class="text-xs pt-3">Spotřeba paliva (kombinovaná) 6,5 l/100 km</p>
+                                <div class="flex flex-row text-xs pt-3">
+                                    <p class="bg-lime-300 pl-1 pr-5 mr-2">C</p>
+                                    <p>Emise CO2 (kombinované) 147 g/km </p>
+                                </div>
+                            </div>
+                            <hr class="my-5 mx-3">
+                            <p class="text-sm mx-3">K dispozici: Invelt s.r.o. - Praha</p>
+                            <button type="button" class="py-2 px-10 rounded-full border-2 border-black mt-3 mx-3 mb-5">Zobrazit podrobnosti o vozidle</button>
+                        </div>
+                    </div>
+                    <!-- Car Card -->
+                    <div class=" pb-3">
+                        <div class="border border-gray flex flex-col h-[850px]">
+                            <div class="flex flex-row justify-end content-end pt-3 pr-3 pb-7">
+                                <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
+                            </div>
+                            <img src="img/cooper2.webp" alt="cooper" class="w-full cooperImg">
+                            <div class="flex flex-col grow p-3 pb-0">
+                                <span class="text-xl uppercase">MINI Cooper S Cabrio</span>
+                                <span class="text-xl text-gray-600 uppercase mt-2">Paket Classic</span>
+                                <div class="flex flex-row mt-2">
+                                    <p class="bg-gray-600 text-white text-xs p-1 shrink">Nový vůz</p>
+                                </div>
+                                <p class="mt-2">995 539.75 Kč</p>
+                                <div class="w-full flex flex-row justify-evenly content-between mt-10">
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M17.813 31.2339C20.011 31.2339 21.793 29.4519 21.793 27.2549C21.793 23.4679 19.168 23.9659 17.813 18.2339C16.514 23.9649 13.833 23.4129 13.833 27.2549C13.833 29.4529 15.615 31.2339 17.813 31.2339ZM16.87 24.7379C17.161 24.3679 17.487 23.9529 17.821 23.4489C18.152 23.9529 18.474 24.3689 18.761 24.7399C19.49 25.6809 19.792 26.0699 19.792 27.2549C19.792 28.3459 18.904 29.2339 17.812 29.2339C16.72 29.2339 15.832 28.3459 15.832 27.2549C15.833 26.0559 16.136 25.6689 16.87 24.7379Z" fill="#262626"></path>
+                                            <path d="M24 6C14.059 6 6 14.059 6 24C6 33.941 14.059 42 24 42C24.107 42 24.211 41.986 24.317 41.984V41.99C27.356 41.99 32.5 40.413 32.5 34.5V24.121C32.5 23.463 32.233 22.819 31.766 22.351L22.035 12.673L20.625 14.091L25.559 19H25.5V26.379C25.5 27.037 25.767 27.681 26.237 28.151L30.5 32.353V34.5C30.5 39.726 25.35 39.99 24.317 39.99V39.984C24.211 39.986 24.107 40 24 40C15.178 40 8 32.822 8 24C8 15.178 15.178 8 24 8C32.822 8 40 15.178 40 24C40 28.871 37.806 33.232 34.361 36.169C34.169 37.415 33.771 38.509 33.205 39.447C38.466 36.306 42 30.573 42 24C42 14.059 33.941 6 24 6ZM27.646 26.732C27.553 26.639 27.5 26.51 27.5 26.378V20.93L30.354 23.768C30.447 23.861 30.5 23.99 30.5 24.122V29.546L27.646 26.732Z" fill="#262626"></path>
+                                        </svg>
+                                        <p class="text-sm">Zážěhový</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M37 11H34V23H25V11H22V23H13V11H10V37H13V26H22V37H25V26H37V11Z" fill="black"></path>
+                                        </svg>
+                                        <p class="text-sm">Automatická</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4995 2.40002V4.86156C16.2754 5.37666 9.95894 9.92042 7.1734 16.6057C4.38787 23.291 5.60924 30.9755 10.3303 36.4677L8.59487 38.2031C3.17149 32.0063 1.74096 23.2659 4.90582 15.6635C8.07068 8.06103 15.2809 2.91776 23.4995 2.40002ZM26.3056 4.86156C30.4243 5.17453 34.3315 6.81078 37.4441 9.52618L39.1918 7.79079C35.612 4.61626 31.0795 2.72015 26.3056 2.40002V4.86156ZM27.6718 23.9877C27.6657 23.6686 27.6075 23.3527 27.4995 23.0523L37.3456 13.2062L35.6472 11.5077L25.7272 21.3539C25.4519 21.2494 25.1601 21.1952 24.8656 21.1939C23.3206 21.2006 22.0718 22.455 22.0718 24C22.0727 24.2844 22.1184 24.5668 22.2072 24.8369L19.7456 27.2985L21.481 29.0462L23.9426 26.5846C24.2488 26.7037 24.574 26.7662 24.9026 26.7693C26.4256 26.7428 27.6521 25.5109 27.6718 23.9877ZM26.3056 45.5877V43.1262V43.0154C30.3589 42.7182 34.2105 41.1309 37.2964 38.4862L39.0318 40.2339C35.4931 43.3682 31.0207 45.2497 26.3056 45.5877ZM10.5764 40.1846C14.1659 43.3614 18.715 45.246 23.4995 45.5385V43.0769C19.3688 42.7813 15.4444 41.158 12.3118 38.4493L10.5764 40.1846ZM46.4164 22.6093C46.132 17.8417 44.2702 13.3041 41.1241 9.71079L39.4256 11.4585C42.0967 14.5907 43.6853 18.5016 43.9549 22.6093H46.4164ZM41.0379 38.2523L39.3026 36.5169H39.3395C42.0314 33.404 43.6497 29.5072 43.9549 25.4031H46.4164C46.0926 30.1628 44.2013 34.6812 41.0379 38.2523Z" fill="black"></path>
+                                          </svg>
+                                        <p class="text-sm">100kW (136 k)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs pt-5">Zrychlení 9,7s (0-100 km/h)</p>
+                                <p class="text-xs pt-3">Zdvihový objem 1499 cm3</p>
+                                <p class="text-xs pt-3">Druh pohonu Pohon zadních kol</p>
+                                <p class="text-xs pt-3">Spotřeba paliva (kombinovaná) 6,5 l/100 km</p>
+                                <div class="flex flex-row text-xs pt-3">
+                                    <p class="bg-lime-300 pl-1 pr-5 mr-2">C</p>
+                                    <p>Emise CO2 (kombinované) 147 g/km </p>
+                                </div>
+                            </div>
+                            <hr class="my-5 mx-3">
+                            <p class="text-sm mx-3">K dispozici: Invelt s.r.o. - Praha</p>
+                            <button type="button" class="py-2 px-10 rounded-full border-2 border-black mt-3 mx-3 mb-5">Zobrazit podrobnosti o vozidle</button>
+                        </div>
+                    </div>
+                    <!-- Car Card -->
+                    <div class=" pb-3">
+                        <div class="border border-gray flex flex-col h-[850px]">
+                            <div class="flex flex-row justify-end content-end pt-3 pr-3 pb-7">
+                                <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
+                            </div>
+                            <img src="img/cooper3.webp" alt="cooper" class="w-full cooperImg">
+                            <div class="flex flex-col grow p-3 pb-0">
+                                <span class="text-xl uppercase">MINI Cooper S Hatch</span>
+                                <span class="text-xl text-gray-600 uppercase mt-2"> </span>
+                                <div class="flex flex-row mt-2">
+                                    <p class="bg-gray-600 text-white text-xs p-1 shrink">Nový vůz</p>
+                                </div>
+                                <p class="mt-2">995 539.75 Kč</p>
+                                <div class="w-full flex flex-row justify-evenly content-between mt-10">
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M17.813 31.2339C20.011 31.2339 21.793 29.4519 21.793 27.2549C21.793 23.4679 19.168 23.9659 17.813 18.2339C16.514 23.9649 13.833 23.4129 13.833 27.2549C13.833 29.4529 15.615 31.2339 17.813 31.2339ZM16.87 24.7379C17.161 24.3679 17.487 23.9529 17.821 23.4489C18.152 23.9529 18.474 24.3689 18.761 24.7399C19.49 25.6809 19.792 26.0699 19.792 27.2549C19.792 28.3459 18.904 29.2339 17.812 29.2339C16.72 29.2339 15.832 28.3459 15.832 27.2549C15.833 26.0559 16.136 25.6689 16.87 24.7379Z" fill="#262626"></path>
+                                            <path d="M24 6C14.059 6 6 14.059 6 24C6 33.941 14.059 42 24 42C24.107 42 24.211 41.986 24.317 41.984V41.99C27.356 41.99 32.5 40.413 32.5 34.5V24.121C32.5 23.463 32.233 22.819 31.766 22.351L22.035 12.673L20.625 14.091L25.559 19H25.5V26.379C25.5 27.037 25.767 27.681 26.237 28.151L30.5 32.353V34.5C30.5 39.726 25.35 39.99 24.317 39.99V39.984C24.211 39.986 24.107 40 24 40C15.178 40 8 32.822 8 24C8 15.178 15.178 8 24 8C32.822 8 40 15.178 40 24C40 28.871 37.806 33.232 34.361 36.169C34.169 37.415 33.771 38.509 33.205 39.447C38.466 36.306 42 30.573 42 24C42 14.059 33.941 6 24 6ZM27.646 26.732C27.553 26.639 27.5 26.51 27.5 26.378V20.93L30.354 23.768C30.447 23.861 30.5 23.99 30.5 24.122V29.546L27.646 26.732Z" fill="#262626"></path>
+                                        </svg>
+                                        <p class="text-sm">Zážěhový</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M37 11H34V23H25V11H22V23H13V11H10V37H13V26H22V37H25V26H37V11Z" fill="black"></path>
+                                        </svg>
+                                        <p class="text-sm">Automatická</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4995 2.40002V4.86156C16.2754 5.37666 9.95894 9.92042 7.1734 16.6057C4.38787 23.291 5.60924 30.9755 10.3303 36.4677L8.59487 38.2031C3.17149 32.0063 1.74096 23.2659 4.90582 15.6635C8.07068 8.06103 15.2809 2.91776 23.4995 2.40002ZM26.3056 4.86156C30.4243 5.17453 34.3315 6.81078 37.4441 9.52618L39.1918 7.79079C35.612 4.61626 31.0795 2.72015 26.3056 2.40002V4.86156ZM27.6718 23.9877C27.6657 23.6686 27.6075 23.3527 27.4995 23.0523L37.3456 13.2062L35.6472 11.5077L25.7272 21.3539C25.4519 21.2494 25.1601 21.1952 24.8656 21.1939C23.3206 21.2006 22.0718 22.455 22.0718 24C22.0727 24.2844 22.1184 24.5668 22.2072 24.8369L19.7456 27.2985L21.481 29.0462L23.9426 26.5846C24.2488 26.7037 24.574 26.7662 24.9026 26.7693C26.4256 26.7428 27.6521 25.5109 27.6718 23.9877ZM26.3056 45.5877V43.1262V43.0154C30.3589 42.7182 34.2105 41.1309 37.2964 38.4862L39.0318 40.2339C35.4931 43.3682 31.0207 45.2497 26.3056 45.5877ZM10.5764 40.1846C14.1659 43.3614 18.715 45.246 23.4995 45.5385V43.0769C19.3688 42.7813 15.4444 41.158 12.3118 38.4493L10.5764 40.1846ZM46.4164 22.6093C46.132 17.8417 44.2702 13.3041 41.1241 9.71079L39.4256 11.4585C42.0967 14.5907 43.6853 18.5016 43.9549 22.6093H46.4164ZM41.0379 38.2523L39.3026 36.5169H39.3395C42.0314 33.404 43.6497 29.5072 43.9549 25.4031H46.4164C46.0926 30.1628 44.2013 34.6812 41.0379 38.2523Z" fill="black"></path>
+                                          </svg>
+                                        <p class="text-sm">100kW (136 k)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs pt-5">Zrychlení 9,7s (0-100 km/h)</p>
+                                <p class="text-xs pt-3">Zdvihový objem 1499 cm3</p>
+                                <p class="text-xs pt-3">Druh pohonu Pohon zadních kol</p>
+                                <p class="text-xs pt-3">Spotřeba paliva (kombinovaná) 6,5 l/100 km</p>
+                                <div class="flex flex-row text-xs pt-3">
+                                    <p class="bg-lime-300 pl-1 pr-5 mr-2">C</p>
+                                    <p>Emise CO2 (kombinované) 147 g/km </p>
+                                </div>
+                            </div>
+                            <hr class="my-5 mx-3">
+                            <p class="text-sm mx-3">K dispozici: Invelt s.r.o. - Praha</p>
+                            <button type="button" class="py-2 px-10 rounded-full border-2 border-black mt-3 mx-3 mb-5">Zobrazit podrobnosti o vozidle</button>
+                        </div>
+                    </div>
+                    <!-- Car Card -->
+                    <div class=" pb-3">
+                        <div class="border border-gray flex flex-col h-[850px]">
+                            <div class="flex flex-row justify-end content-end pt-3 pr-3 pb-7">
+                                <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
+                            </div>
+                            <img src="img/cooper4.webp" alt="cooper" class="w-full cooperImg">
+                            <div class="flex flex-col grow p-3 pb-0">
+                                <span class="text-xl uppercase">MINI Cooper S Hatch</span>
+                                <span class="text-xl text-gray-600 uppercase mt-2">Paket MINI Yours</span>
+                                <div class="flex flex-row mt-2">
+                                    <p class="bg-gray-600 text-white text-xs p-1 shrink">Nový vůz</p>
+                                </div>
+                                <p class="mt-2">995 539.75 Kč</p>
+                                <div class="w-full flex flex-row justify-evenly content-between mt-10">
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M17.813 31.2339C20.011 31.2339 21.793 29.4519 21.793 27.2549C21.793 23.4679 19.168 23.9659 17.813 18.2339C16.514 23.9649 13.833 23.4129 13.833 27.2549C13.833 29.4529 15.615 31.2339 17.813 31.2339ZM16.87 24.7379C17.161 24.3679 17.487 23.9529 17.821 23.4489C18.152 23.9529 18.474 24.3689 18.761 24.7399C19.49 25.6809 19.792 26.0699 19.792 27.2549C19.792 28.3459 18.904 29.2339 17.812 29.2339C16.72 29.2339 15.832 28.3459 15.832 27.2549C15.833 26.0559 16.136 25.6689 16.87 24.7379Z" fill="#262626"></path>
+                                            <path d="M24 6C14.059 6 6 14.059 6 24C6 33.941 14.059 42 24 42C24.107 42 24.211 41.986 24.317 41.984V41.99C27.356 41.99 32.5 40.413 32.5 34.5V24.121C32.5 23.463 32.233 22.819 31.766 22.351L22.035 12.673L20.625 14.091L25.559 19H25.5V26.379C25.5 27.037 25.767 27.681 26.237 28.151L30.5 32.353V34.5C30.5 39.726 25.35 39.99 24.317 39.99V39.984C24.211 39.986 24.107 40 24 40C15.178 40 8 32.822 8 24C8 15.178 15.178 8 24 8C32.822 8 40 15.178 40 24C40 28.871 37.806 33.232 34.361 36.169C34.169 37.415 33.771 38.509 33.205 39.447C38.466 36.306 42 30.573 42 24C42 14.059 33.941 6 24 6ZM27.646 26.732C27.553 26.639 27.5 26.51 27.5 26.378V20.93L30.354 23.768C30.447 23.861 30.5 23.99 30.5 24.122V29.546L27.646 26.732Z" fill="#262626"></path>
+                                        </svg>
+                                        <p class="text-sm">Zážěhový</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M37 11H34V23H25V11H22V23H13V11H10V37H13V26H22V37H25V26H37V11Z" fill="black"></path>
+                                        </svg>
+                                        <p class="text-sm">Automatická</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4995 2.40002V4.86156C16.2754 5.37666 9.95894 9.92042 7.1734 16.6057C4.38787 23.291 5.60924 30.9755 10.3303 36.4677L8.59487 38.2031C3.17149 32.0063 1.74096 23.2659 4.90582 15.6635C8.07068 8.06103 15.2809 2.91776 23.4995 2.40002ZM26.3056 4.86156C30.4243 5.17453 34.3315 6.81078 37.4441 9.52618L39.1918 7.79079C35.612 4.61626 31.0795 2.72015 26.3056 2.40002V4.86156ZM27.6718 23.9877C27.6657 23.6686 27.6075 23.3527 27.4995 23.0523L37.3456 13.2062L35.6472 11.5077L25.7272 21.3539C25.4519 21.2494 25.1601 21.1952 24.8656 21.1939C23.3206 21.2006 22.0718 22.455 22.0718 24C22.0727 24.2844 22.1184 24.5668 22.2072 24.8369L19.7456 27.2985L21.481 29.0462L23.9426 26.5846C24.2488 26.7037 24.574 26.7662 24.9026 26.7693C26.4256 26.7428 27.6521 25.5109 27.6718 23.9877ZM26.3056 45.5877V43.1262V43.0154C30.3589 42.7182 34.2105 41.1309 37.2964 38.4862L39.0318 40.2339C35.4931 43.3682 31.0207 45.2497 26.3056 45.5877ZM10.5764 40.1846C14.1659 43.3614 18.715 45.246 23.4995 45.5385V43.0769C19.3688 42.7813 15.4444 41.158 12.3118 38.4493L10.5764 40.1846ZM46.4164 22.6093C46.132 17.8417 44.2702 13.3041 41.1241 9.71079L39.4256 11.4585C42.0967 14.5907 43.6853 18.5016 43.9549 22.6093H46.4164ZM41.0379 38.2523L39.3026 36.5169H39.3395C42.0314 33.404 43.6497 29.5072 43.9549 25.4031H46.4164C46.0926 30.1628 44.2013 34.6812 41.0379 38.2523Z" fill="black"></path>
+                                          </svg>
+                                        <p class="text-sm">100kW (136 k)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs pt-5">Zrychlení 9,7s (0-100 km/h)</p>
+                                <p class="text-xs pt-3">Zdvihový objem 1499 cm3</p>
+                                <p class="text-xs pt-3">Druh pohonu Pohon zadních kol</p>
+                                <p class="text-xs pt-3">Spotřeba paliva (kombinovaná) 6,5 l/100 km</p>
+                                <div class="flex flex-row text-xs pt-3">
+                                    <p class="bg-lime-300 pl-1 pr-5 mr-2">C</p>
+                                    <p>Emise CO2 (kombinované) 147 g/km </p>
+                                </div>
+                            </div>
+                            <hr class="my-5 mx-3">
+                            <p class="text-sm mx-3">K dispozici: Invelt s.r.o. - Praha</p>
+                            <button type="button" class="py-2 px-10 rounded-full border-2 border-black mt-3 mx-3 mb-5">Zobrazit podrobnosti o vozidle</button>
+                        </div>
+                    </div>
+                    <!-- Car Card -->
+                    <div class=" pb-3">
+                        <div class="border border-gray flex flex-col h-[850px]">
+                            <div class="flex flex-row justify-end content-end pt-3 pr-3 pb-7">
+                                <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
+                            </div>
+                            <img src="img/cooper5.webp" alt="cooper" class="w-full cooperImg">
+                            <div class="flex flex-col grow p-3 pb-0">
+                                <span class="text-xl uppercase">Paket MINI Yours</span>
+                                <span class="text-xl text-gray-600 uppercase mt-2"> </span>
+                                <div class="flex flex-row mt-2">
+                                    <p class="bg-gray-600 text-white text-xs p-1 shrink">Nový vůz</p>
+                                </div>
+                                <p class="mt-2">995 539.75 Kč</p>
+                                <div class="w-full flex flex-row justify-evenly content-between mt-10">
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M17.813 31.2339C20.011 31.2339 21.793 29.4519 21.793 27.2549C21.793 23.4679 19.168 23.9659 17.813 18.2339C16.514 23.9649 13.833 23.4129 13.833 27.2549C13.833 29.4529 15.615 31.2339 17.813 31.2339ZM16.87 24.7379C17.161 24.3679 17.487 23.9529 17.821 23.4489C18.152 23.9529 18.474 24.3689 18.761 24.7399C19.49 25.6809 19.792 26.0699 19.792 27.2549C19.792 28.3459 18.904 29.2339 17.812 29.2339C16.72 29.2339 15.832 28.3459 15.832 27.2549C15.833 26.0559 16.136 25.6689 16.87 24.7379Z" fill="#262626"></path>
+                                            <path d="M24 6C14.059 6 6 14.059 6 24C6 33.941 14.059 42 24 42C24.107 42 24.211 41.986 24.317 41.984V41.99C27.356 41.99 32.5 40.413 32.5 34.5V24.121C32.5 23.463 32.233 22.819 31.766 22.351L22.035 12.673L20.625 14.091L25.559 19H25.5V26.379C25.5 27.037 25.767 27.681 26.237 28.151L30.5 32.353V34.5C30.5 39.726 25.35 39.99 24.317 39.99V39.984C24.211 39.986 24.107 40 24 40C15.178 40 8 32.822 8 24C8 15.178 15.178 8 24 8C32.822 8 40 15.178 40 24C40 28.871 37.806 33.232 34.361 36.169C34.169 37.415 33.771 38.509 33.205 39.447C38.466 36.306 42 30.573 42 24C42 14.059 33.941 6 24 6ZM27.646 26.732C27.553 26.639 27.5 26.51 27.5 26.378V20.93L30.354 23.768C30.447 23.861 30.5 23.99 30.5 24.122V29.546L27.646 26.732Z" fill="#262626"></path>
+                                        </svg>
+                                        <p class="text-sm">Zážěhový</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M37 11H34V23H25V11H22V23H13V11H10V37H13V26H22V37H25V26H37V11Z" fill="black"></path>
+                                        </svg>
+                                        <p class="text-sm">Automatická</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4995 2.40002V4.86156C16.2754 5.37666 9.95894 9.92042 7.1734 16.6057C4.38787 23.291 5.60924 30.9755 10.3303 36.4677L8.59487 38.2031C3.17149 32.0063 1.74096 23.2659 4.90582 15.6635C8.07068 8.06103 15.2809 2.91776 23.4995 2.40002ZM26.3056 4.86156C30.4243 5.17453 34.3315 6.81078 37.4441 9.52618L39.1918 7.79079C35.612 4.61626 31.0795 2.72015 26.3056 2.40002V4.86156ZM27.6718 23.9877C27.6657 23.6686 27.6075 23.3527 27.4995 23.0523L37.3456 13.2062L35.6472 11.5077L25.7272 21.3539C25.4519 21.2494 25.1601 21.1952 24.8656 21.1939C23.3206 21.2006 22.0718 22.455 22.0718 24C22.0727 24.2844 22.1184 24.5668 22.2072 24.8369L19.7456 27.2985L21.481 29.0462L23.9426 26.5846C24.2488 26.7037 24.574 26.7662 24.9026 26.7693C26.4256 26.7428 27.6521 25.5109 27.6718 23.9877ZM26.3056 45.5877V43.1262V43.0154C30.3589 42.7182 34.2105 41.1309 37.2964 38.4862L39.0318 40.2339C35.4931 43.3682 31.0207 45.2497 26.3056 45.5877ZM10.5764 40.1846C14.1659 43.3614 18.715 45.246 23.4995 45.5385V43.0769C19.3688 42.7813 15.4444 41.158 12.3118 38.4493L10.5764 40.1846ZM46.4164 22.6093C46.132 17.8417 44.2702 13.3041 41.1241 9.71079L39.4256 11.4585C42.0967 14.5907 43.6853 18.5016 43.9549 22.6093H46.4164ZM41.0379 38.2523L39.3026 36.5169H39.3395C42.0314 33.404 43.6497 29.5072 43.9549 25.4031H46.4164C46.0926 30.1628 44.2013 34.6812 41.0379 38.2523Z" fill="black"></path>
+                                          </svg>
+                                        <p class="text-sm">100kW (136 k)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs pt-5">Zrychlení 9,7s (0-100 km/h)</p>
+                                <p class="text-xs pt-3">Zdvihový objem 1499 cm3</p>
+                                <p class="text-xs pt-3">Druh pohonu Pohon zadních kol</p>
+                                <p class="text-xs pt-3">Spotřeba paliva (kombinovaná) 6,5 l/100 km</p>
+                                <div class="flex flex-row text-xs pt-3">
+                                    <p class="bg-lime-300 pl-1 pr-5 mr-2">C</p>
+                                    <p>Emise CO2 (kombinované) 147 g/km </p>
+                                </div>
+                            </div>
+                            <hr class="my-5 mx-3">
+                            <p class="text-sm mx-3">K dispozici: Invelt s.r.o. - Praha</p>
+                            <button type="button" class="py-2 px-10 rounded-full border-2 border-black mt-3 mx-3 mb-5">Zobrazit podrobnosti o vozidle</button>
+                        </div>
+                    </div>
+                    <!-- Car Card -->
+                    <div class=" pb-3">
+                        <div class="border border-gray flex flex-col h-[850px]">
+                            <div class="flex flex-row justify-end content-end pt-3 pr-3 pb-7">
+                                <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
+                            </div>
+                            <img src="img/cooper6.webp" alt="cooper" class="w-full cooperImg">
+                            <div class="flex flex-col grow p-3 pb-0">
+                                <span class="text-xl uppercase">MINI Cooper SE ALL4 Countryman</span>
+                                <span class="text-xl text-gray-600 uppercase mt-2">Paket MINI Yours</span>
+                                <div class="flex flex-row mt-2">
+                                    <p class="bg-gray-600 text-white text-xs p-1 shrink">Nový vůz</p>
+                                </div>
+                                <p class="mt-2">995 539.75 Kč</p>
+                                <div class="w-full flex flex-row justify-evenly content-between mt-10">
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M17.813 31.2339C20.011 31.2339 21.793 29.4519 21.793 27.2549C21.793 23.4679 19.168 23.9659 17.813 18.2339C16.514 23.9649 13.833 23.4129 13.833 27.2549C13.833 29.4529 15.615 31.2339 17.813 31.2339ZM16.87 24.7379C17.161 24.3679 17.487 23.9529 17.821 23.4489C18.152 23.9529 18.474 24.3689 18.761 24.7399C19.49 25.6809 19.792 26.0699 19.792 27.2549C19.792 28.3459 18.904 29.2339 17.812 29.2339C16.72 29.2339 15.832 28.3459 15.832 27.2549C15.833 26.0559 16.136 25.6689 16.87 24.7379Z" fill="#262626"></path>
+                                            <path d="M24 6C14.059 6 6 14.059 6 24C6 33.941 14.059 42 24 42C24.107 42 24.211 41.986 24.317 41.984V41.99C27.356 41.99 32.5 40.413 32.5 34.5V24.121C32.5 23.463 32.233 22.819 31.766 22.351L22.035 12.673L20.625 14.091L25.559 19H25.5V26.379C25.5 27.037 25.767 27.681 26.237 28.151L30.5 32.353V34.5C30.5 39.726 25.35 39.99 24.317 39.99V39.984C24.211 39.986 24.107 40 24 40C15.178 40 8 32.822 8 24C8 15.178 15.178 8 24 8C32.822 8 40 15.178 40 24C40 28.871 37.806 33.232 34.361 36.169C34.169 37.415 33.771 38.509 33.205 39.447C38.466 36.306 42 30.573 42 24C42 14.059 33.941 6 24 6ZM27.646 26.732C27.553 26.639 27.5 26.51 27.5 26.378V20.93L30.354 23.768C30.447 23.861 30.5 23.99 30.5 24.122V29.546L27.646 26.732Z" fill="#262626"></path>
+                                        </svg>
+                                        <p class="text-sm">Zážěhový</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path d="M37 11H34V23H25V11H22V23H13V11H10V37H13V26H22V37H25V26H37V11Z" fill="black"></path>
+                                        </svg>
+                                        <p class="text-sm">Automatická</p>
+                                    </div>
+                                    <div class="">
+                                        <svg aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4995 2.40002V4.86156C16.2754 5.37666 9.95894 9.92042 7.1734 16.6057C4.38787 23.291 5.60924 30.9755 10.3303 36.4677L8.59487 38.2031C3.17149 32.0063 1.74096 23.2659 4.90582 15.6635C8.07068 8.06103 15.2809 2.91776 23.4995 2.40002ZM26.3056 4.86156C30.4243 5.17453 34.3315 6.81078 37.4441 9.52618L39.1918 7.79079C35.612 4.61626 31.0795 2.72015 26.3056 2.40002V4.86156ZM27.6718 23.9877C27.6657 23.6686 27.6075 23.3527 27.4995 23.0523L37.3456 13.2062L35.6472 11.5077L25.7272 21.3539C25.4519 21.2494 25.1601 21.1952 24.8656 21.1939C23.3206 21.2006 22.0718 22.455 22.0718 24C22.0727 24.2844 22.1184 24.5668 22.2072 24.8369L19.7456 27.2985L21.481 29.0462L23.9426 26.5846C24.2488 26.7037 24.574 26.7662 24.9026 26.7693C26.4256 26.7428 27.6521 25.5109 27.6718 23.9877ZM26.3056 45.5877V43.1262V43.0154C30.3589 42.7182 34.2105 41.1309 37.2964 38.4862L39.0318 40.2339C35.4931 43.3682 31.0207 45.2497 26.3056 45.5877ZM10.5764 40.1846C14.1659 43.3614 18.715 45.246 23.4995 45.5385V43.0769C19.3688 42.7813 15.4444 41.158 12.3118 38.4493L10.5764 40.1846ZM46.4164 22.6093C46.132 17.8417 44.2702 13.3041 41.1241 9.71079L39.4256 11.4585C42.0967 14.5907 43.6853 18.5016 43.9549 22.6093H46.4164ZM41.0379 38.2523L39.3026 36.5169H39.3395C42.0314 33.404 43.6497 29.5072 43.9549 25.4031H46.4164C46.0926 30.1628 44.2013 34.6812 41.0379 38.2523Z" fill="black"></path>
+                                          </svg>
+                                        <p class="text-sm">100kW (136 k)</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs pt-5">Zrychlení 9,7s (0-100 km/h)</p>
+                                <p class="text-xs pt-3">Zdvihový objem 1499 cm3</p>
+                                <p class="text-xs pt-3">Druh pohonu Pohon zadních kol</p>
+                                <p class="text-xs pt-3">Spotřeba paliva (kombinovaná) 6,5 l/100 km</p>
+                                <div class="flex flex-row text-xs pt-3">
+                                    <p class="bg-lime-300 pl-1 pr-5 mr-2">C</p>
+                                    <p>Emise CO2 (kombinované) 147 g/km </p>
+                                </div>
+                            </div>
+                            <hr class="my-5 mx-3">
+                            <p class="text-sm mx-3">K dispozici: Invelt s.r.o. - Praha</p>
+                            <button type="button" class="py-2 px-10 rounded-full border-2 border-black mt-3 mx-3 mb-5">Zobrazit podrobnosti o vozidle</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <footer class="bg-black">
             <div class="flex flex-row flex-wrap justify-between text-white bg-black max-w-[1500px] mx-auto py-5 px-5 2xl:px-0">
                 <div class="flex flex-col w-full sm:w-1/2 md:w-1/4 lg:w-1/4 content-start mt-5 px-1">
@@ -206,5 +564,47 @@
             </div>
         </footer>
     </div>
+    <script>
+        function showModalImg(src){
+            const modalImg = document.getElementById('modalImg');
+            modalImg.classList.toggle("hidden");
+            modalImg.classList.toggle("flex");
+            document.getElementById('img').src = src;
+        }
+
+        function closeModalImg(event){
+            if(event.target.id === 'modalImg' || event.target.id === 'closeBtn' || event.target.id === 'closeIcon'){
+                const modalImg = document.getElementById('modalImg');
+                modalImg.classList.toggle("hidden");
+                modalImg.classList.toggle("flex");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+          const groups = document.querySelectorAll('#filter');
+            
+          groups.forEach(group => {
+            const button = group.querySelector('.group-btn');
+            const options = group.querySelector('.options');
+      
+            button.addEventListener('click', () => {
+              options.classList.toggle('hidden');
+            });
+          });
+
+          const images = document.querySelectorAll('.cooperImg');
+
+          images.forEach(image => {
+            image.addEventListener('click', () => {
+                showModalImg(image.src);
+            });
+          });
+
+          document.getElementById('modalImg').addEventListener('click',  closeModalImg);
+        
+        });
+
+    </script>
+      
 </body>
 </html>
