@@ -1,10 +1,11 @@
 <!doctype html>
-<html>
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>MINI</title>
     <script src="scripts/nav.js"></script>
 </head>
 <body class="h-screen flex flex-col" style="font-family:Georgia, 'Times New Roman', Times, serif">
@@ -130,7 +131,7 @@
         <div class="absolute top-0 left-0 right-0 bottom-0 bg-[rgba(50,50,50,0.9)] flex-col justify-center hidden" id="modalImg">
             <div class="w-full md:w-[80%] max-w-[1200px] bg-white flex flex-col mx-auto py-[50px] relative">
                 <div class="aspect-w-16 aspect-h-7">
-                    <img src="" alt="cooper" class="object-cover w-full h-full" id="img">
+                    <img src="img/cooper1.webp" alt="cooper" class="object-cover w-full h-full" id="img">
                 </div>
                 <button class="absolute top-0 right-0 m-5" id="closeBtn">
                     <i class="fa fa-times fa-2x" id="closeIcon"></i>
@@ -143,45 +144,45 @@
             <p>Vyberte si ten, který nejlépe vyhovuje Vašim potřebám.</p>
             <div class="flex flex-col lg:flex-row mt-10">
                 <div class="flex flex-col lg:basis-1/4 text-lg mb-3">
-                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0"  id="filter">
+                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0 filter">
                         <button class="p-5 w-full text-left group-btn font-bold">Nabídka</button>
                         <div class="bg-white rounded hidden options">
                             <div class="flex flex-row p-5">
-                                <input type="checkbox" id="dealerevailable" class="mr-3 accent-black hover:accent-cyan-700"></input>
+                                <input type="checkbox" id="dealerevailable" class="mr-3 accent-black hover:accent-cyan-700">
                                 <label for="dealerevailable">Vozy s nabídkou dealera</label>
                             </div>
                         </div>
                     </div>
-                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0"  id="filter">
+                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0 filter">
                         <button class="p-5 w-full text-left group-btn font-bold">Cena</button>
                         <div class="bg-white p-4 rounded hidden options">
                           <label for="pricefrom" class="text-sm">CENA OD</label> <br>
-                          <input type="text" id="priceform" class="border-gray-300 border w-full p-1 mt-1" placeholder="855 000,00 KČ"> <br>
+                          <input type="text" id="pricefrom" class="border-gray-300 border w-full p-1 mt-1" placeholder="855 000,00 KČ"> <br>
                           <label for="priceto" class="text-sm">CENA DO</label> <br>
                           <input type="text" id="priceto" class="border-gray-300 border w-full p-1 mt-1" placeholder="1 411 000,00 Kč"> <br>
                         </div>
                     </div>
-                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0"  id="filter">
+                    <div class="group border hover:border-b-2 border-t-slate-400 hover:border-t-cyan-700 border-b-slate-400 hover:border-b-cyan-700 border-x-0 filter">
                         <button class="p-5 w-full text-left group-btn font-bold">Barva</button>
                         <div class="bg-white p-4 rounded hidden  options">
-                            <div class="flex flex-row p-5">
-                                <input type="checkbox" id="colorblack" class="mr-3 accent-black hover:accent-cyan-700"></input>
+                            <div class="flex flex-row p-1">
+                                <input type="checkbox" id="colorblack" class="mr-3 accent-black hover:accent-cyan-700">
                                 <label for="colorblack">Černá</label>
                             </div>
-                            <div class="flex flex-row p-5">
-                                <input type="checkbox" id="colorgray" class="mr-3 accent-gray-600 hover:accent-cyan-700"></input>
+                            <div class="flex flex-row p-1">
+                                <input type="checkbox" id="colorgray" class="mr-3 accent-gray-600 hover:accent-cyan-700">
                                 <label for="colorgray">Šedá</label>
                             </div>
-                            <div class="flex flex-row p-5">
-                                <input type="checkbox" id="colorwhite" class="mr-3 accent-white hover:accent-cyan-700"></input>
+                            <div class="flex flex-row p-1">
+                                <input type="checkbox" id="colorwhite" class="mr-3 accent-white hover:accent-cyan-700">
                                 <label for="colorwhite">Bílá</label>
                             </div>
-                            <div class="flex flex-row p-5">
-                                <input type="checkbox" id="colorblue" class="mr-3 accent-cyan-800 hover:accent-cyan-700"></input>
+                            <div class="flex flex-row p-1">
+                                <input type="checkbox" id="colorblue" class="mr-3 accent-cyan-800 hover:accent-cyan-700">
                                 <label for="colorblue">Modrá</label>
                             </div>
-                            <div class="flex flex-row p-5">
-                                <input type="checkbox" id="colorgreen" class="mr-3 accent-green-800 hover:accent-cyan-700"></input>
+                            <div class="flex flex-row p-1">
+                                <input type="checkbox" id="colorgreen" class="mr-3 accent-green-800 hover:accent-cyan-700">
                                 <label for="colorgreen">Zelená</label>
                             </div>
                         </div>
@@ -552,15 +553,19 @@
                         <button type="button" class="">
                             <i class="fa fa-instagram fa-lg p-2"></i>
                         </button>
-                        </button>
                         <button type="button" class="">
                             <i class="fa fa-youtube fa-lg p-2"></i>
+                        </button>
                         <button type="button" class="">
                             <i class="fa fa-linkedin fa-lg p-2"></i>
                         </button>
                     </div>
 
                 </div>
+            </div>
+            <div class="w-full bg-white p-10 flex flex-col justify-center align-middle items-center">
+                <p>Jedná se o studentský projekt pro předmět VIA - VŠB-TUO FEI</p>
+                <p>Veškeré fotky, ikony a texty použité v tomto projekt jsou ze stránek <a href="https://www.mini.cz/">www.mini.cz</a> nebo knihovny <a href="https://fontawesome.com/v4/icons/">Font Awesome 4</a></p>
             </div>
         </footer>
     </div>
@@ -581,7 +586,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-          const groups = document.querySelectorAll('#filter');
+          const groups = document.querySelectorAll('.filter');
             
           groups.forEach(group => {
             const button = group.querySelector('.group-btn');
